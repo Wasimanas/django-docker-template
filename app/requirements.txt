@@ -1,0 +1,9 @@
+django==3.2
+django_summernote
+psycopg2 
+Pillow
+celery
+redis 
+flower 
+gunicorn  
+

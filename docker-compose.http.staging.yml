@@ -27,7 +27,7 @@ services:
     restart: always 
     environment:  
       - DEBUG=0
-      - SECRET_KEY=1a-owqf2mb2+im(d(jedgtylaogc8)0#1bcv3*1j=l^zu6l_nj
+      - SECRET_KEY=setsecretkey
       - ALLOWED_HOSTS=localhost
       - SQL_ENGINE=django.db.backends.postgresql
       - SQL_DATABASE=appName_production_db

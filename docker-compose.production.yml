@@ -7,8 +7,9 @@ services:
       dockerfile: Dockerfile.prod
     command: gunicorn appName.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - appName_static_volume:/usr/src/app/staticfiles
-      - appName_media_volume:/usr/src/app/mediafiles 
+      - ./app/staticfiles/:/appName/app/staticfiles
+      - ./app/mediafiles:/appName/app/mediafiles
+
     expose:
       - 8000 
     depends_on:
@@ -35,8 +36,6 @@ services:
       - POSTGRES_DB=appName_production_db  
 volumes:
   appName_production_postgres_data: 
-  appName_static_volume:
-  appName_media_volume:
 
 
 

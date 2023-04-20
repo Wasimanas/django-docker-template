@@ -1,9 +1,11 @@
-django==3.2
+django
 django_summernote
 psycopg2 
 Pillow
 celery
 redis 
 flower 
-gunicorn  
+gunicorn
+daphne
+channels
 

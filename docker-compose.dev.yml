@@ -1,36 +1,37 @@
 version: '3.8' 
 services: 
-  appName_web: 
+  quizupnow_web:
+    container_name: quizupnow_web
     build:
       context: ./app
       dockerfile: Dockerfile.dev  
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8003
     volumes: 
-      - ./app/:/appName/app/   
+      - ./app/:/quizupnow/app/   
     ports: 
-      - 8000:8000
+      - 8003:8003
     depends_on:
-      - appName_development_db
+      - quizupnow_development_db
     environment:  
       - DEBUG=1
       - SECRET_KEY=setsecretkey
       - ALLOWED_HOSTS=localhost
       - SQL_ENGINE=django.db.backends.postgresql
-      - SQL_DATABASE=appName_development_db
-      - SQL_USER=appName_development_user
-      - SQL_PASSWORD=appName_development_password
-      - SQL_HOST=appName_development_db
+      - SQL_DATABASE=quizupnow_development_db
+      - SQL_USER=quizupnow_development_user
+      - SQL_PASSWORD=quizupnow_development_password
+      - SQL_HOST=quizupnow_development_db
       - SQL_PORT=5432
     restart: always 
-  appName_development_db:
+  quizupnow_development_db:
     image: postgres:13.0-alpine
     volumes:
-      - appName_development_postgres_data:/var/lib/postgresql/data/  
+      - quizupnow_development_postgres_data:/var/lib/postgresql/data/  
     environment:  
-      - POSTGRES_USER=appName_development_user 
-      - POSTGRES_PASSWORD=appName_development_password
-      - POSTGRES_DB=appName_development_db   
+      - POSTGRES_USER=quizupnow_development_user 
+      - POSTGRES_PASSWORD=quizupnow_development_password
+      - POSTGRES_DB=quizupnow_development_db   
 
 volumes:
-  appName_development_postgres_data:
+  quizupnow_development_postgres_data:
 

@@ -1,53 +1,53 @@
 version: '3.3'
 
 services: 
-  appName_nginx: 
+  quizupnow_nginx: 
     build: ./nginx
     depends_on:
-      - appName_web 
+      - quizupnow_web 
     ports:
       - 80:80
     volumes:
-      - ./app/staticfiles/:/appName/app/staticfiles
-      - ./app/mediafiles:/appName/app/mediafiles
+      - ./app/staticfiles/:/quizupnow/app/staticfiles
+      - ./app/mediafiles:/quizupnow/app/mediafiles
 
-  appName_web: 
+  quizupnow_web: 
     build:
       context: ./app
       dockerfile: Dockerfile.prod 
 
-    command: gunicorn appName.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn quizupnow.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - ./app/staticfiles/:/appName/app/staticfiles
-      - ./app/mediafiles:/appName/app/mediafiles
+      - ./app/staticfiles/:/quizupnow/app/staticfiles
+      - ./app/mediafiles:/quizupnow/app/mediafiles
     expose:
       - 8000
     depends_on:
-      - appName_production_db 
+      - quizupnow_production_db 
     restart: always 
     environment:  
       - DEBUG=0
       - SECRET_KEY=setsecretkey
       - ALLOWED_HOSTS=localhost
       - SQL_ENGINE=django.db.backends.postgresql
-      - SQL_DATABASE=appName_production_db
-      - SQL_USER=appName_production_user
-      - SQL_PASSWORD=appName_production_password
-      - SQL_HOST=appName_production_db
+      - SQL_DATABASE=quizupnow_production_db
+      - SQL_USER=quizupnow_production_user
+      - SQL_PASSWORD=quizupnow_production_password
+      - SQL_HOST=quizupnow_production_db
       - SQL_PORT=5432
 
-  appName_production_db:
+  quizupnow_production_db:
     image: postgres:13.0-alpine
     volumes:
-      - appName_production_postgres_data:/var/lib/postgresql/data/  
+      - quizupnow_production_postgres_data:/var/lib/postgresql/data/  
     environment:
-      - POSTGRES_USER=appName_production_user 
-      - POSTGRES_PASSWORD=appName_production_password
-      - POSTGRES_DB=appName_production_db   
+      - POSTGRES_USER=quizupnow_production_user 
+      - POSTGRES_PASSWORD=quizupnow_production_password
+      - POSTGRES_DB=quizupnow_production_db   
 
 
 volumes:
-  appName_production_postgres_data: 
+  quizupnow_production_postgres_data: 
 
 
 

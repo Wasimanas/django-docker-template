@@ -1,0 +1,113 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	box-sizing: border-box;
+} 
+
+nav {  
+	background: rgb(125,193,112);
+	min-height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+nav li {
+	list-style-type: none;
+	margin-top: 10px;
+	transform: translateY(3px);
+
+
+}
+.navbar{
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
+
+.searchBar { 
+	margin: 25px 40px 10px 40px;
+}
+
+
+.searchBar input { 
+	border-radius: 25px;
+}
+
+.category { 
+	display: flex;
+	flex-wrap: wrap;
+	padding: 30px;
+	justify-content: space-evenly;
+	margin: 30px;
+
+
+}
+
+
+.quizCategoryCard {
+	border: 2px solid black;
+	display: flex;
+	flex-direction: column;
+	height: 300px;
+	min-width: 350px;
+	color: lightgreen;
+	margin: 30px;
+	border-radius:10px;
+
+
+
+}
+
+.quizCategory {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: rgb(125,193,112);
+	min-height:50px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+
+}
+
+.quizCategory p{ 
+	transform: translateY(10px);
+}
+
+
+.subCategoryList {
+	text-align: center;
+	color: black;
+	overflow: scroll;
+	overflow-x: hidden;
+	margin-top: 10px;
+
+}
+
+.quizCategory a {
+	color: white;
+}
+
+
+.subCategoryList h6 {
+	font-weight: bold;
+	transform: translateX(5px);
+}
+
+
+.subCategoryList ul {  
+}
+
+.subCategoryList li { 
+	text-decoration: none;
+	list-style-type: none; 
+} 
+
+
